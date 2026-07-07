@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #020617;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5FF;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #00E5FF;
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neon glow utilities */
+.neon-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6), 0 0 16px rgba(0, 229, 255, 0.3);
+}
+.neon-border-cyan {
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.5), 0 0 16px rgba(0, 229, 255, 0.2), inset 0 0 16px rgba(0, 229, 255, 0.05);
+}
+.neon-border-green {
+  box-shadow: 0 0 0 1px rgba(0, 255, 148, 0.5), 0 0 16px rgba(0, 255, 148, 0.2);
+}
+.neon-border-red {
+  box-shadow: 0 0 0 1px rgba(255, 59, 59, 0.5), 0 0 16px rgba(255, 59, 59, 0.2);
+}
+
+/* Scanline effect */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 229, 255, 0.02) 2px,
+    rgba(0, 229, 255, 0.02) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(13, 20, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+/* Locked overlay blur */
+.locked-blur {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Typing cursor */
+.cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: #00E5FF;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Progress bar shimmer */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Fade transition for view swaps */
+.view-enter {
+  animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
