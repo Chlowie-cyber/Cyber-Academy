@@ -2,7 +2,7 @@
 
 Cyber Academy is a modern cybersecurity learning platform built with React, TypeScript, Vite, and Tailwind CSS. It guides users through interactive learning units, tracks progress, rewards XP, and helps connect training to cybersecurity career pathways.
 
-**Live Demo:** [https://cyber-academy-project.vercel.app/]
+**Live Demo:** [cyber-academy-project.vercel.app](https://cyber-academy-project.vercel.app)
 
 ## Features
 
@@ -25,33 +25,33 @@ Cyber Academy is a modern cybersecurity learning platform built with React, Type
 
 1. Clone the repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/Chlowie-cyber/Cyber-Academy.git
-\`\`\`
+```
 
 2. Navigate into the project folder
 
-\`\`\`bash
+```bash
 cd Cyber-Academy/project
-\`\`\`
+```
 
 3. Install dependencies
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 4. Start the development server
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 5. Open your browser and visit the local URL shown by Vite.
 
 ## Project Structure
 
-\`\`\`
+```
 project/
   src/
     components/     # Reusable UI components
@@ -59,7 +59,7 @@ project/
     hooks/          # App state and logic
     App.tsx         # Main application view
     main.tsx        # Entry point
-\`\`\`
+```
 
 ## Usage
 
