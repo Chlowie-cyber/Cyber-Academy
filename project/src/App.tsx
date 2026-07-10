@@ -7,11 +7,15 @@ import { CareerMatrix } from './components/CareerMatrix'
 import { Icon } from './components/Icon'
 import { useState } from 'react'
 import { ActivityGrid } from './components/ActivityGrid'
+import { StudyTools } from './components/StudyTools'
+import { PracticeExam } from './components/PracticeExam'
 
 export default function App() {
   const app = useAppState()
   const [showCareer, setShowCareer] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const [showStudyTools, setShowStudyTools] = useState(false)
+  const [showPracticeExam, setShowPracticeExam] = useState(false)
 
   const[showSimulationJobs, setShowSimulationJobs] = useState(false)
   const[streakCount, setStreakCount] = useState(0)
@@ -161,6 +165,8 @@ export default function App() {
               </div>
             </div>
           </div>
+) : showStudyTools ? (
+          <StudyTools onBack={() => setShowStudyTools(false)} />
         ) : currentUnit && currentProgress ? (
           <UnitDetail
             unit={currentUnit}
@@ -177,6 +183,8 @@ export default function App() {
             onUnlockNext={() => app.unlockNextUnit(currentUnit.id)}
             isLastUnit={currentUnit.id === UNITS.length}
           />
+          ) : showPracticeExam ? (
+  <PracticeExam onBack={() => setShowPracticeExam(false)} />
         ) : showCareer ? (
           <div>
             <CareerMatrix />
@@ -243,6 +251,23 @@ export default function App() {
               >
                 <Icon name="target" className="h-5 w-5" />
                 View 5-Phase Career Matrix
+                <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <button
+                onClick={() => setShowStudyTools(true)}
+                className="group flex items-center gap-3 rounded-xl border border-neon-cyan/30 bg-slate-900/50 px-6 py-4 font-mono text-sm font-bold text-neon-cyan transition-all hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)] mx-auto mt-4"
+              >
+                <Icon name="book" className="h-5 w-5" />
+                Study Tools
+                <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              <button
+                onClick={() => setShowPracticeExam(true)}
+                className="group flex items-center gap-3 rounded-xl border border-neon-cyan/30 bg-slate-900/50 px-6 py-4 font-mono text-sm font-bold text-neon-cyan transition-all hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)] mx-auto mt-4"
+              >
+                <Icon name="exam" className="h-5 w-5" />
+                Practice Exam Simulator
                 <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>

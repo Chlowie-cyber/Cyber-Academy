@@ -1,6 +1,39 @@
 import { CAREER_PHASES } from '../data/curriculum'
 import { Icon } from './Icon'
 
+const ESSENTIAL_TOOLS = [
+  { name: 'Wireshark', use: 'Packet capture & network analysis' },
+  { name: 'Nmap', use: 'Port scanning & network discovery' },
+  { name: 'Kali Linux', use: 'Penetration testing OS toolkit' },
+  { name: 'Burp Suite', use: 'Web application security testing' },
+  { name: 'Metasploit', use: 'Exploit development & testing framework' },
+  { name: 'Splunk', use: 'SIEM log aggregation & analysis' },
+  { name: 'Microsoft Defender', use: 'Endpoint detection & response' },
+  { name: 'John the Ripper', use: 'Password strength auditing' },
+]
+
+const LEARNING_RESOURCES = [
+  { name: 'TryHackMe', type: 'Hands-on labs' },
+  { name: 'Hack The Box', type: 'Hands-on labs' },
+  { name: 'OWASP', type: 'Web security standards' },
+  { name: 'SANS Institute', type: 'Professional training' },
+  { name: 'Coursera', type: 'Structured courses' },
+  { name: 'Udemy', type: 'Structured courses' },
+  { name: 'YouTube', type: 'Free video tutorials' },
+]
+
+const CAREER_PATHS = [
+  'SOC Analyst',
+  'Security Engineer',
+  'Penetration Tester',
+  'Incident Responder',
+  'Threat Hunter',
+  'Security Architect',
+  'GRC Analyst',
+  'Cloud Security Engineer',
+  'CISO',
+]
+
 export function CareerMatrix() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -112,6 +145,66 @@ export function CareerMatrix() {
               {/* Spacer for alternating layout */}
               <div className="hidden md:block md:w-1/2" />
             </div>
+          ))}
+        </div>
+      </div>
+      {/* Essential Tools */}
+      <div className="mt-16">
+        <div className="mb-6 text-center">
+          <h3 className="font-mono text-xl font-bold text-white">Essential Tools</h3>
+          <p className="mt-1 text-sm text-slate-400">The toolkit every security analyst reaches for</p>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {ESSENTIAL_TOOLS.map((tool) => (
+            <div
+              key={tool.name}
+              className="rounded-lg border border-slate-700/50 bg-slate-900/50 p-4 transition-colors hover:border-neon-cyan/40"
+            >
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md border border-neon-cyan/30 bg-neon-cyan/10">
+                <Icon name="terminal" className="h-4 w-4 text-neon-cyan" />
+              </div>
+              <p className="font-mono text-sm font-bold text-white">{tool.name}</p>
+              <p className="mt-1 text-xs text-slate-400">{tool.use}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Learning Resources */}
+      <div className="mt-16">
+        <div className="mb-6 text-center">
+          <h3 className="font-mono text-xl font-bold text-white">Learning Resources</h3>
+          <p className="mt-1 text-sm text-slate-400">Where to practice and go deeper</p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-3">
+          {LEARNING_RESOURCES.map((r) => (
+            <div
+              key={r.name}
+              className="flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-900/50 px-4 py-2.5 transition-colors hover:border-neon-cyan/40"
+            >
+              <Icon name="book" className="h-4 w-4 text-neon-cyan" />
+              <span className="font-mono text-sm font-bold text-white">{r.name}</span>
+              <span className="font-mono text-[10px] text-slate-500">· {r.type}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Career Paths */}
+      <div className="mt-16">
+        <div className="mb-6 text-center">
+          <h3 className="font-mono text-xl font-bold text-white">Career Paths</h3>
+          <p className="mt-1 text-sm text-slate-400">Where this journey can take you</p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-2">
+          {CAREER_PATHS.map((path) => (
+            <span
+              key={path}
+              className="flex items-center gap-1.5 rounded-full border border-neon-green/30 bg-neon-green/5 px-3 py-1.5 font-mono text-xs font-bold text-neon-green"
+            >
+              <Icon name="briefcase" className="h-3 w-3" />
+              {path}
+            </span>
           ))}
         </div>
       </div>
